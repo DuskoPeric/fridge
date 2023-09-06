@@ -1,4 +1,4 @@
-# vue-learning
+# Fridge app
 
 ## Project setup
 ```

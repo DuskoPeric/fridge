@@ -1,12 +1,12 @@
 <template>
   <div class="addItem">
     <div class="container holder">
-      <input v-model="itemText" type="text" placeholder="add new item">
-      <button class="add" :disabled="!itemText" @click="addNewItem">+</button>
-      <button class="side-button" @click="open=!open">
+      <div class="input-holder"><input v-model="itemText" type="text" placeholder="add new item"></div>
+      <div class="action-button add" @click="addNewItem">+</div>
+      <div class="action-button side-button" @click="open=!open">
         <img v-if="!open" src="../assets/sm.png">
         <img v-else src="../assets/close.png">
-      </button>
+      </div>
       <transition>
         <div v-if="open" class="common-items">
           <span v-for="item in items" :key="item" @click="$emit('addCI',item)">{{item}}</span>
@@ -69,8 +69,14 @@ export default {
 .holder {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   box-sizing: border-box;
   position: relative;
+}
+.input-holder{
+    height: 40px;
+    display: flex;
+    align-items: center;
 }
 .holder input {
   background: transparent;
@@ -85,9 +91,11 @@ export default {
 .holder input:focus-visible {
   outline: none;
 }
-.holder button {
+.holder .action-button {
   width: 40px;
   height: 40px;
+  max-width: 40px;
+  max-height: 40px;
   border: none;
   font-size: 37px;
   font-weight: 100;
@@ -97,6 +105,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .side-button {
   right: 10px;
@@ -116,7 +125,7 @@ export default {
 }
 .common-items {
   position: absolute;
-  top: 51px;
+  top: 50px;
   width: 100%;
   background: #2498ff;
   display: flex;

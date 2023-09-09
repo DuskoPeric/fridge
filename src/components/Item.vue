@@ -1,9 +1,9 @@
 <template>
   <div v-if="item" class="item-holder">
     <div class="main" @click="$emit('edit')">
-      <button :class="{ done: item.done }">
+      <div :class="{ done: item.done }">
         <img v-if="item.done" src="../assets/check.png">
-      </button>
+      </div>
       <p :class="{ done: item.done }">{{item.name}}</p>
     </div>
     <button class="delete" @click="$emit('delete')">
@@ -44,7 +44,9 @@ export default {
 }
 .delete {
   width: 30px;
+  max-width: 30px;
   height: 30px;
+  max-height: 30px;
   background: #2498ff;
   border: none;
   border-radius: 50%;
@@ -68,8 +70,10 @@ export default {
   text-decoration: line-through;
   color: #848e97;
 }
-.main button {
+.main div {
   width: 20px;
+  max-width: 20px;
+  max-height: 20px;
   height: 20px;
   border: solid 2px #848e97;
   margin-right: 10px;
@@ -80,11 +84,11 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.main button.done {
+.main div.done {
   background: #848e97;
   border: solid 2px #848e97;
 }
-.main button img {
+.main div img {
   width: 10px;
 }
 </style>

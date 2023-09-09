@@ -40,7 +40,7 @@ export default {
         this.getCItems();
         this.getItems();
       } else {
-        this.$router.push("/login");
+        this.$router.push("/fridge/login");
       }
     });
   },
@@ -52,6 +52,8 @@ export default {
 
         if (snapshot.exists()) {
           this.items = data;
+        } else {
+          this.items = {};
         }
       });
     },
@@ -67,12 +69,14 @@ export default {
       });
     },
     setNewItem(val) {
-      const query = ref(db, "items/" + randomId(5));
-      const obj = {
-        name: val,
-        done: false
-      };
-      set(query, obj);
+      if (val) {
+        const query = ref(db, "items/" + randomId(5));
+        const obj = {
+          name: val,
+          done: false
+        };
+        set(query, obj);
+      }
     },
     deleteItem(val) {
       const query = ref(db, "items/" + val);

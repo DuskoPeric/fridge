@@ -26,7 +26,7 @@ export default {
   mounted() {
     onAuthStateChanged(auth, user => {
       if (user) {
-        this.$router.push("/");
+        this.$router.push("/fridge");
       }
     });
   },

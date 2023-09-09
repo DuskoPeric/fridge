@@ -5,9 +5,9 @@ import LoginPage from "./Pages/LoginPage.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", component: HomePage },
-    { path: "/login", component: LoginPage },
-    { path: "/:notFound(.*)", redirect: "/" }
+    { path: "/fridge", component: HomePage },
+    { path: "/fridge/login", component: LoginPage },
+    { path: "/:notFound(.*)", redirect: "/fridge" }
   ]
 });
 

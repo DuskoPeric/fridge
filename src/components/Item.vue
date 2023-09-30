@@ -7,7 +7,7 @@
       <p :class="{ done: item.done }">{{item.name}}</p>
     </div>
     <button class="delete" @click="$emit('delete')">
-      <img src="../assets/trash.png">
+      <img src="../assets/del.png">
     </button>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
 </script>
 <style scoped>
 .item-holder {
-  background: #ffffff;
+  background: #f0edf5;
   width: 480px;
   max-width: 90%;
   margin: auto;
@@ -33,21 +33,21 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 20px;
+  padding: 0px 15px;
   box-sizing: border-box;
   margin-bottom: 15px;
   color: #07bc87;
-  -webkit-box-shadow: 5px 5px 0px 0px rgba(223, 232, 237, 1);
-  -moz-box-shadow: 5px 5px 0px 0px rgba(223, 232, 237, 1);
-  box-shadow: 5px 5px 0px 0px rgba(223, 232, 237, 1);
+  -webkit-box-shadow: 3px 3px 0px 0px rgba(70, 49, 130, 0.24);
+  -moz-box-shadow: 3px 3px 0px 0px rgba(70, 49, 130, 0.24);
+  box-shadow: 3px 3px 0px 0px rgba(70, 49, 130, 0.24);
   align-items: center;
 }
 .delete {
-  width: 30px;
-  max-width: 30px;
-  height: 30px;
-  max-height: 30px;
-  background: #2498ff;
+  width: 22px;
+  max-width: 22px;
+  height: 22px;
+  max-height: 22px;
+  background: #ffff;
   border: none;
   border-radius: 50%;
   display: flex;
@@ -55,7 +55,7 @@ export default {
   justify-content: center;
 }
 .delete img {
-  width: 16px;
+  width: 10px;
 }
 .main {
   display: flex;
@@ -64,20 +64,21 @@ export default {
 .main p {
   font-size: 16px;
   font-weight: 600;
-  color: #848e97;
+  color: #797789;
 }
 .main p.done {
   text-decoration: line-through;
-  color: #848e97;
+  color: #797789;
 }
 .main div {
-  width: 20px;
-  max-width: 20px;
-  max-height: 20px;
-  height: 20px;
-  border: solid 2px #848e97;
-  margin-right: 10px;
-  border-radius: 5px;
+  width: 15px;
+  max-width: 15px;
+  max-height: 15px;
+  height: 15px;
+  border: solid 2px #463182;
+  margin-right: 15px;
+  margin-left: 5px;
+  border-radius: 50%;
   background: transparent;
   color: white;
   display: flex;
@@ -85,8 +86,8 @@ export default {
   justify-content: center;
 }
 .main div.done {
-  background: #848e97;
-  border: solid 2px #848e97;
+  background: #463182;
+  border: solid 2px #463182;
 }
 .main div img {
   width: 10px;

@@ -1,14 +1,16 @@
 <template>
-  <div>
+  <div class="home-holder">
     <AddItem @addNew="setNewItem" :items="cItems" @addCI="setNewItem"/>
-    <div>
-      <item
-        v-for="(item,id) in items"
-        :key="id"
-        :item="item"
-        @delete="deleteItem(id)"
-        @edit="editItem(id,item)"
-      />
+    <div class="item-holderica">
+      <div>
+        <item
+          v-for="(item,id) in items"
+          :key="id"
+          :item="item"
+          @delete="deleteItem(id)"
+          @edit="editItem(id,item)"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -93,5 +95,31 @@ export default {
   }
 };
 </script>
+<style scoped>
+.home-holder {
+  display: flex;
+  height: calc(100% - 30px);
+  /* background: red; */
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.item-holderica {
+  background: #ffffff;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+  padding-bottom: 25px;
+}
+.item-holderica > div {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  height: 100%;
+  overflow: auto;
+}
+</style>
 
 

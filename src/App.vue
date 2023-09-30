@@ -1,19 +1,12 @@
 <template>
-  <div>
-    <top-header></top-header>
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import TopHeader from "./components/TopHeader.vue";
 
 export default defineComponent({
-  name: "App",
-  components: {
-    TopHeader
-  }
+  name: "App"
 });
 </script>
 
@@ -22,8 +15,15 @@ body {
   color: white;
   margin: 0;
   padding: 0;
-  background: #f0f4f7;
-  padding-top: 140px;
+  background: rgb(253, 253, 254);
+  background: linear-gradient(
+    0deg,
+    rgba(253, 253, 254, 1) 0%,
+    rgba(171, 157, 202, 1) 59%,
+    rgba(60, 83, 164, 1) 100%
+  );
+  height: 100vh;
+  /* padding-top: 140px; */
 }
 .container {
   width: 100%;
@@ -31,10 +31,11 @@ body {
   margin: auto;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
+  height: 100%;
 }
 </style>

@@ -22,7 +22,7 @@ body {
     rgba(171, 157, 202, 1) 59%,
     rgba(60, 83, 164, 1) 100%
   );
-  height: 100vh;
+  height: 100dvh;
   /* padding-top: 140px; */
 }
 .container {

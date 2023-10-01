@@ -50,6 +50,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-top: 150px;
 }
 .login-holder input {
   width: 301px;
@@ -62,13 +63,12 @@ export default {
   box-sizing: border-box;
   background: #ffffff;
   color: #848e97;
-  -webkit-box-shadow: 5px 5px 0px 0px rgba(223, 232, 237, 1);
-  -moz-box-shadow: 5px 5px 0px 0px rgba(223, 232, 237, 1);
-  box-shadow: 5px 5px 0px 0px rgba(223, 232, 237, 1);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
 }
 .login-holder div button {
   width: 100%;
-  background: #2498ff;
+  background: #463182;
   border: none;
   padding: 10px 20px;
   color: white;
@@ -76,10 +76,11 @@ export default {
   font-size: 16px;
   font-weight: 700;
   border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
 }
 .login-holder div button:disabled {
-  background: #2498ff;
-  color: #11131a;
+  background: #463182;
+  color: #91949e;
 }
 input:focus,
 .holder input:focus-visible,

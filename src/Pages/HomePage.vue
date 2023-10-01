@@ -1,6 +1,6 @@
 <template>
   <div class="home-holder">
-    <AddItem @addNew="setNewItem" :items="cItems" @addCI="setNewItem"/>
+    <AddItem @addNew="setNewItem" :items="cItems" @addCI="setNewItem" :mainItems='items'/>
     <div class="item-holderica">
       <div>
         <item
@@ -12,6 +12,7 @@
         />
       </div>
     </div>
+    <log-out/>
   </div>
 </template>
 <script>
@@ -23,6 +24,7 @@ import randomId from "random-id";
 
 import Item from "../components/Item.vue";
 import AddItem from "../components/AddItem.vue";
+import LogOut from "../components/LogOut.vue";
 
 const db = getDatabase(app);
 const auth = getAuth();
@@ -34,7 +36,8 @@ export default {
   }),
   components: {
     Item,
-    AddItem
+    AddItem,
+    LogOut,
   },
   mounted() {
     onAuthStateChanged(auth, user => {
@@ -98,7 +101,7 @@ export default {
 <style scoped>
 .home-holder {
   display: flex;
-  height: calc(100% - 30px);
+  height: calc(100% - 40px);
   /* background: red; */
   flex-direction: column;
   padding-left: 10px;
@@ -109,9 +112,9 @@ export default {
   height: 100%;
   border-radius: 20px;
   overflow: hidden;
-  -webkit-box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 8px 8px 0px rgba(75, 93, 169, 0.3);
+  -moz-box-shadow: 0px 8px 8px 0px rgba(75, 93, 169, 0.3);
+  box-shadow: 0px 8px 8px 0px rgba(75, 93, 169, 0.3);
   padding-bottom: 25px;
 }
 .item-holderica > div {

@@ -7,24 +7,24 @@
           <p>add new item</p>
         </div>
         <div class="input-handler" v-show="isFocus">
-          <input v-model="itemText" type="text" ref="typeBox" @blur="handleBlur">
+          <input v-model="itemText" type="text" ref="typeBox" @blur="handleBlur" @keyup.enter="addNewItem">
         </div>
         <div class="action-holder">
           <div
-            v-show="isFocus && itemText"
+            v-show="isFocus"
             class="action-button side-button add-btn"
             @click="addNewItem"
           >
             <img src="../assets/pl.png">
           </div>
-          <div class="action-button side-button" @click="open=!open">
+          <div v-if="filteredList(items).length>0" class="action-button side-button" @click="open=!open">
             <img :class="{isOpen: open}" src="../assets/arr.png">
           </div>
         </div>
       </div>
       <transition>
-        <div v-if="open" class="common-items">
-          <span v-for="item in items" :key="item" @click="$emit('addCI',item)">{{item}}</span>
+        <div v-if="open && filteredList(items).length>0" class="common-items">
+          <span  v-for="item in filteredList(items)"  :key="item" @click="addNewCI(item)">{{item}}</span>
         </div>
       </transition>
     </div>
@@ -36,13 +36,25 @@ export default {
   data: () => ({
     itemText: "",
     open: false,
-    isFocus: false
+    isFocus: false,
   }),
   props: {
-    items: Object
+    items: Object,
+    mainItems: Object
   },
   name: "AddItem",
   methods: {
+    addNewCI(item){
+      if(this.filteredList(this.items).length<=1){
+        this.open=false;
+      }
+      this.$emit('addCI',item);
+    },
+    filteredList(list){
+      const fList=Object.values(list);
+      const arr=Object.values(this.mainItems).map((item)=>item.name);
+      return fList.filter((item)=>!arr.find((sItem)=>sItem===item));
+    },
     addNewItem() {
       this.$emit("addNew", this.itemText);
       this.itemText = "";
